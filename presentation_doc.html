@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Annadata - Complete Documentation and Aashray Topics</title>
+<style>
+    @page {
+        size: A4;
+        margin: 18mm 16mm 18mm 16mm;
+        @bottom-right {
+            content: counter(page);
+            font-size: 9pt;
+            color: #666;
+        }
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #24292e;
+        line-height: 1.55;
+        font-size: 10.5pt;
+        background: #fff;
+    }
+    h1 {
+        color: #1b5e20;
+        border-bottom: 2.5px solid #2e7d32;
+        padding-bottom: 8px;
+        font-size: 20pt;
+        margin-top: 24pt;
+        page-break-after: avoid;
+    }
+    h2 {
+        color: #2e7d32;
+        border-bottom: 1px solid #c8e6c9;
+        padding-bottom: 5px;
+        font-size: 15pt;
+        margin-top: 18pt;
+        page-break-after: avoid;
+    }
+    h3 {
+        color: #388e3c;
+        font-size: 12pt;
+        margin-top: 14pt;
+        page-break-after: avoid;
+    }
+    h4 {
+        font-size: 11pt;
+        color: #333;
+        page-break-after: avoid;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12pt 0;
+        font-size: 9.5pt;
+        page-break-inside: avoid;
+    }
+    th, td {
+        border: 1px solid #d0d7de;
+        padding: 6px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #e8f5e9;
+        color: #1b5e20;
+        font-weight: 600;
+    }
+    tr:nth-child(even) {
+        background-color: #f9fbf9;
+    }
+    pre {
+        background-color: #f6f8fa;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        font-size: 9pt;
+        line-height: 1.4;
+        page-break-inside: avoid;
+    }
+    code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        background-color: rgba(175, 184, 193, 0.2);
+        padding: 0.15em 0.35em;
+        border-radius: 4px;
+        font-size: 9pt;
+    }
+    pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 4px solid #4caf50;
+        margin: 10pt 0;
+        padding: 6pt 14pt;
+        background: #f1f8e9;
+        color: #2e7d32;
+        page-break-inside: avoid;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        margin: 20pt 0;
+    }
+    ul, ol {
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+</style>
+</head>
+<body>
+<h1>🌾 Annadata — Food Donation &amp; Distribution System</h1>
+<h2>Complete Project Documentation &amp; Presentation Guide</h2>
+<hr />
+<h1>PART 1 — PROJECT OVERVIEW</h1>
+<h2>What is Annadata?</h2>
+<p><strong>Annadata</strong> (meaning <em>"the one who provides food"</em> in Sanskrit) is a desktop application built to connect food donors with recipients and manage daily food distribution across community service locations.</p>
+<p>The system solves a real-world problem:
+- Food from restaurants, events, and households goes to waste
+- NGOs and shelters struggle to find timely food supply
+- No organized digital system exists to track food donations at a local level</p>
+<p>Annadata bridges this gap by providing a role-based platform where:
+- <strong>Donors</strong> post available food
+- <strong>Recipients</strong> (NGOs, shelters, individuals) browse and claim it
+- <strong>Admins</strong> monitor the entire operation and manage schedules</p>
+<hr />
+<h2>Core Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Role-Based Login</td>
+<td>3 roles: Admin, Donor, Recipient — each with a dedicated dashboard</td>
+</tr>
+<tr>
+<td>Food Donations</td>
+<td>Post food with category, quantity, expiry, source type</td>
+</tr>
+<tr>
+<td>Claim Requests</td>
+<td>Recipients can request/claim available donations</td>
+</tr>
+<tr>
+<td>Emergency Aid</td>
+<td>Recipients post urgent food needs for disasters or crises</td>
+</tr>
+<tr>
+<td>Distribution Schedule</td>
+<td>Weekly grid (Mon–Sun × Morning/Afternoon/Evening) for community kitchens, temples, shelters, etc.</td>
+</tr>
+<tr>
+<td>Source Analytics</td>
+<td>Visual charts showing donations by source (Individual / Organization / Government)</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>Real-time in-app notifications for actions between roles</td>
+</tr>
+<tr>
+<td>User Management</td>
+<td>Admin can activate/deactivate accounts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>PART 2 — TECHNOLOGY STACK</h1>
+<h2>⚠️ Important Clarification</h2>
+<p>This project does <strong>NOT</strong> use Spring Boot. It is a <strong>standalone desktop application</strong> built with:</p>
+<table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Role in Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java 21</strong></td>
+<td>Core programming language for all logic</td>
+</tr>
+<tr>
+<td><strong>JavaFX 21</strong></td>
+<td>UI framework for the desktop interface</td>
+</tr>
+<tr>
+<td><strong>FXML</strong></td>
+<td>XML-based layout files for each screen</td>
+</tr>
+<tr>
+<td><strong>CSS (JavaFX)</strong></td>
+<td>Styling the UI components (green theme)</td>
+</tr>
+<tr>
+<td><strong>JDBC</strong></td>
+<td>Java Database Connectivity — connects Java directly to MySQL</td>
+</tr>
+<tr>
+<td><strong>MySQL 8.0</strong></td>
+<td>Relational database storing all application data</td>
+</tr>
+<tr>
+<td><strong>BCrypt (jBCrypt)</strong></td>
+<td>Password hashing library for secure login</td>
+</tr>
+<tr>
+<td><strong>MySQL Connector/J</strong></td>
+<td>JDBC driver JAR that enables Java to talk to MySQL</td>
+</tr>
+</tbody>
+</table>
+<h3>Why not Spring Boot?</h3>
+<p>Spring Boot is a <strong>web/server framework</strong> — it runs in a browser. This project is a <strong>desktop app</strong> that runs as an installed program on a PC, which is why JavaFX is used instead.</p>
+<hr />
+<h1>PART 3 — ARCHITECTURE</h1>
+<h2>Layered Architecture (MVC Pattern)</h2>
+<pre><code>┌─────────────────────────────────────────────────────┐
+│                   PRESENTATION LAYER                 │
+│        JavaFX FXML Files + CSS Stylesheet            │
+│   login.fxml, donor_dashboard.fxml, admin_dashboard  │
+│        (What the user SEES on screen)                │
+└───────────────────────┬─────────────────────────────┘
+                        │  User actions trigger
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                  CONTROLLER LAYER                    │
+│          Java Controller Classes (src/controller/)   │
+│  LoginController, DonorDashboardController, etc.     │
+│       (Logic for what happens when user clicks)      │
+└───────────────────────┬─────────────────────────────┘
+                        │  Calls DAO methods
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                   DATA ACCESS LAYER                  │
+│           DAO Classes (src/dao/)                     │
+│   UserDAO, DonationDAO, RequestDAO, etc.             │
+│     (All SQL queries are written here via JDBC)      │
+└───────────────────────┬─────────────────────────────┘
+                        │  Executes SQL through JDBC
+                        ▼
+┌─────────────────────────────────────────────────────┐
+│                   DATABASE LAYER                     │
+│           MySQL 8.0 — food_donation_db               │
+│   Tables: users, donations, requests, etc.           │
+│        (Permanent data storage)                      │
+└─────────────────────────────────────────────────────┘
+</code></pre>
+<h2>Model Layer (src/model/)</h2>
+<p>Between the DAO layer and Controller layer sits the <strong>Model layer</strong> — plain Java classes that represent data:
+- <code>User.java</code>, <code>Donation.java</code>, <code>Request.java</code>, <code>EmergencyAid.java</code>
+- <code>DistributionPlace.java</code>, <code>DistributionSchedule.java</code>, <code>Notification.java</code></p>
+<p>These are called <strong>POJOs</strong> (Plain Old Java Objects) — they just hold data with getters and setters.</p>
+<hr />
+<h1>PART 4 — HOW JAVA CONNECTS TO MYSQL</h1>
+<p>This is the most technically important part of the project.</p>
+<h2>Step 1 — The JDBC Driver</h2>
+<p>The file <code>lib/mysql-connector-j-8.4.0.jar</code> is the <strong>bridge</strong> between Java and MySQL.</p>
+<p>Without this JAR, Java has no idea how to speak MySQL's language. When the app starts, Java loads this driver:</p>
+<pre><code class="language-java">Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+</code></pre>
+<p>This line tells Java: <em>"Load the MySQL driver so we can open connections."</em></p>
+<h2>Step 2 — DatabaseConnection.java</h2>
+<p>This file creates the actual connection to MySQL using a <strong>Singleton pattern</strong> (only one connection exists at a time):</p>
+<pre><code class="language-java">connection = DriverManager.getConnection(
+    &quot;jdbc:mysql://localhost:3306/food_donation_db?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC&quot;,
+    &quot;root&quot;,   // username
+    &quot;root&quot;    // password
+);
+</code></pre>
+<p>Breaking down the connection URL:
+| Part | Meaning |
+|---|---|
+| <code>jdbc:mysql://</code> | Protocol — tells Java to use the MySQL JDBC driver |
+| <code>localhost</code> | The MySQL server is on the same computer |
+| <code>3306</code> | MySQL's default port number |
+| <code>food_donation_db</code> | The database to connect to |
+| <code>allowPublicKeyRetrieval=true</code> | Required for MySQL 8.0 security handshake |
+| <code>useSSL=false</code> | No encrypted tunnel needed (local connection) |
+| <code>serverTimezone=UTC</code> | Avoid timezone mismatch errors |</p>
+<h2>Step 3 — DatabaseInitializer.java</h2>
+<p>On first startup, this class reads <code>sql/schema.sql</code> and executes it line by line to create all tables automatically. This means team members never need to manually create tables.</p>
+<h2>Step 4 — DAO Layer (Data Access Objects)</h2>
+<p>Every DAO file is responsible for one table. It uses <code>PreparedStatement</code> (not raw SQL strings) to prevent SQL injection:</p>
+<pre><code class="language-java">String sql = &quot;SELECT * FROM users WHERE email = ?&quot;;
+PreparedStatement pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, email);   // The ? is safely replaced here
+ResultSet rs = pstmt.executeQuery();
+</code></pre>
+<p>The <code>?</code> placeholder ensures that user input is never directly embedded in SQL — preventing attacks.</p>
+<h2>Step 5 — ResultSet to Model Object</h2>
+<p>After running a query, MySQL returns a <code>ResultSet</code>. The DAO converts each row into a Java model object:</p>
+<pre><code class="language-java">User user = new User();
+user.setId(rs.getInt(&quot;id&quot;));
+user.setName(rs.getString(&quot;name&quot;));
+user.setEmail(rs.getString(&quot;email&quot;));
+// ... and so on
+return user;
+</code></pre>
+<p>The controller then receives this <code>User</code> object and uses it to populate the UI.</p>
+<hr />
+<h1>PART 5 — HOW JavaFX WORKS</h1>
+<h2>FXML + Controller Binding</h2>
+<p>JavaFX uses FXML (similar to HTML) to define what the screen looks like, and Java Controllers to handle what happens.</p>
+<p>Example — Login Screen:</p>
+<p><strong>login.fxml</strong> (Layout):</p>
+<pre><code class="language-xml">&lt;TextField fx:id=&quot;emailField&quot; promptText=&quot;Email&quot;/&gt;
+&lt;PasswordField fx:id=&quot;passwordField&quot; promptText=&quot;Password&quot;/&gt;
+&lt;Button text=&quot;Login&quot; onAction=&quot;#handleLogin&quot;/&gt;
+</code></pre>
+<p><strong>LoginController.java</strong> (Logic):</p>
+<pre><code class="language-java">@FXML private TextField emailField;
+@FXML private PasswordField passwordField;
+
+@FXML
+public void handleLogin() {
+    String email = emailField.getText().trim();
+    String password = passwordField.getText();
+    User user = new UserDAO().login(email, password);
+    if (user != null) {
+        SessionManager.setCurrentUser(user);
+        // Navigate to role dashboard
+    }
+}
+</code></pre>
+<p>The <code>@FXML</code> annotation tells JavaFX: <em>"Link this Java variable to the matching <code>fx:id</code> in the FXML file."</em></p>
+<h2>Scene Switching</h2>
+<p>When a user logs in, the scene changes:</p>
+<pre><code class="language-java">FXMLLoader loader = new FXMLLoader(getClass().getResource(&quot;/fxml/donor_dashboard.fxml&quot;));
+Stage stage = (Stage) emailField.getScene().getWindow();
+stage.setScene(new Scene(loader.load()));
+</code></pre>
+<p>This replaces the current screen content with the new screen — like navigating between pages.</p>
+<h2>SessionManager.java</h2>
+<p>Since JavaFX doesn't have sessions like web apps do, we built a simple static class to hold the currently logged-in user in memory:</p>
+<pre><code class="language-java">public class SessionManager {
+    private static User currentUser;
+
+    public static void setCurrentUser(User user) { currentUser = user; }
+    public static User getCurrentUser() { return currentUser; }
+    public static void logout() { currentUser = null; }
+}
+</code></pre>
+<p>Every screen can call <code>SessionManager.getCurrentUser()</code> to know who is logged in.</p>
+<hr />
+<h1>PART 6 — DATABASE DESIGN</h1>
+<h2>Database: food_donation_db</h2>
+<h3>Table 1: users</h3>
+<p>Stores all accounts (admin, donor, recipient).</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Unique user ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(100)</td>
+<td>Full name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>VARCHAR(100)</td>
+<td>Login email (unique)</td>
+</tr>
+<tr>
+<td>password_hash</td>
+<td>VARCHAR(255)</td>
+<td>BCrypt hashed password</td>
+</tr>
+<tr>
+<td>role</td>
+<td>ENUM</td>
+<td>'admin', 'donor', 'recipient'</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>VARCHAR(15)</td>
+<td>Contact number</td>
+</tr>
+<tr>
+<td>address</td>
+<td>TEXT</td>
+<td>Physical address</td>
+</tr>
+<tr>
+<td>is_active</td>
+<td>TINYINT(1)</td>
+<td>1=active, 0=deactivated</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td>Registration time</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 2: donations</h3>
+<p>Every food item posted by a donor.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Unique donation ID</td>
+</tr>
+<tr>
+<td>donor_id</td>
+<td>INT (FK → users)</td>
+<td>Who donated it</td>
+</tr>
+<tr>
+<td>title</td>
+<td>VARCHAR(200)</td>
+<td>Name of the donation</td>
+</tr>
+<tr>
+<td>description</td>
+<td>TEXT</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>category</td>
+<td>ENUM</td>
+<td>cooked/raw/packaged/beverages/dog_food/other</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>INT</td>
+<td>How much food</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>VARCHAR(50)</td>
+<td>kg / plates / litres / packets</td>
+</tr>
+<tr>
+<td>expiry_date</td>
+<td>DATETIME</td>
+<td>When it expires</td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td>TEXT</td>
+<td>Where to collect</td>
+</tr>
+<tr>
+<td>source_type</td>
+<td>ENUM</td>
+<td>individual / organization / government</td>
+</tr>
+<tr>
+<td>source_name</td>
+<td>VARCHAR(200)</td>
+<td>Name of the source</td>
+</tr>
+<tr>
+<td>status</td>
+<td>ENUM</td>
+<td>available / accepted / completed / expired / cancelled</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td>When it was posted</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 3: requests</h3>
+<p>When a recipient claims a donation.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Request ID</td>
+</tr>
+<tr>
+<td>donation_id</td>
+<td>INT (FK → donations)</td>
+<td>Which donation</td>
+</tr>
+<tr>
+<td>recipient_id</td>
+<td>INT (FK → users)</td>
+<td>Who is claiming</td>
+</tr>
+<tr>
+<td>status</td>
+<td>ENUM</td>
+<td>pending / accepted / rejected / completed</td>
+</tr>
+<tr>
+<td>message</td>
+<td>TEXT</td>
+<td>Note from recipient</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td>When claimed</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 4: emergency_aids</h3>
+<p>Urgent food requests posted by recipients.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Emergency ID</td>
+</tr>
+<tr>
+<td>recipient_id</td>
+<td>INT (FK → users)</td>
+<td>Who posted</td>
+</tr>
+<tr>
+<td>title</td>
+<td>VARCHAR(200)</td>
+<td>Emergency title</td>
+</tr>
+<tr>
+<td>emergency_type</td>
+<td>ENUM</td>
+<td>disaster_relief / medical_emergency / community_crisis / natural_calamity</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>ENUM</td>
+<td>critical / high / medium</td>
+</tr>
+<tr>
+<td>people_affected</td>
+<td>INT</td>
+<td>Number of people</td>
+</tr>
+<tr>
+<td>location</td>
+<td>TEXT</td>
+<td>Where the emergency is</td>
+</tr>
+<tr>
+<td>required_items</td>
+<td>TEXT</td>
+<td>What food is needed</td>
+</tr>
+<tr>
+<td>status</td>
+<td>ENUM</td>
+<td>open / responding / partially_fulfilled / fulfilled / closed</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 5: distribution_places</h3>
+<p>Fixed community locations that receive daily food.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Place ID</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(200)</td>
+<td>Place name</td>
+</tr>
+<tr>
+<td>category</td>
+<td>ENUM</td>
+<td>dog_food_service / old_age_home / temple / orphanage / community_kitchen / hospital / school</td>
+</tr>
+<tr>
+<td>address</td>
+<td>TEXT</td>
+<td>Location</td>
+</tr>
+<tr>
+<td>contact_person</td>
+<td>VARCHAR(100)</td>
+<td>Manager name</td>
+</tr>
+<tr>
+<td>capacity</td>
+<td>INT</td>
+<td>How many people it serves</td>
+</tr>
+<tr>
+<td>is_active</td>
+<td>TINYINT(1)</td>
+<td>Currently active?</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 6: distribution_schedule</h3>
+<p>The weekly schedule linking places to time slots.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Schedule ID</td>
+</tr>
+<tr>
+<td>place_id</td>
+<td>INT (FK → distribution_places)</td>
+<td>Which place</td>
+</tr>
+<tr>
+<td>day_of_week</td>
+<td>VARCHAR(10)</td>
+<td>Monday / Tuesday etc.</td>
+</tr>
+<tr>
+<td>time_slot</td>
+<td>ENUM</td>
+<td>morning / afternoon / evening</td>
+</tr>
+<tr>
+<td>food_type</td>
+<td>VARCHAR(100)</td>
+<td>Type of food delivered</td>
+</tr>
+<tr>
+<td>quantity_target</td>
+<td>INT</td>
+<td>Target quantity</td>
+</tr>
+<tr>
+<td>assigned_volunteer</td>
+<td>VARCHAR(100)</td>
+<td>Volunteer name</td>
+</tr>
+<tr>
+<td>donation_id</td>
+<td>INT (FK → donations, nullable)</td>
+<td>Linked donation if any</td>
+</tr>
+<tr>
+<td>status</td>
+<td>ENUM</td>
+<td>scheduled / assigned / in_transit / delivered / completed</td>
+</tr>
+<tr>
+<td>recurring</td>
+<td>TINYINT(1)</td>
+<td>Does it repeat every week?</td>
+</tr>
+</tbody>
+</table>
+<h3>Table 7: notifications</h3>
+<p>In-app notifications for all users.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT (PK, Auto)</td>
+<td>Notification ID</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>INT (FK → users)</td>
+<td>Who receives it</td>
+</tr>
+<tr>
+<td>message</td>
+<td>TEXT</td>
+<td>Notification text</td>
+</tr>
+<tr>
+<td>type</td>
+<td>VARCHAR(50)</td>
+<td>donation / request / emergency / system</td>
+</tr>
+<tr>
+<td>read_status</td>
+<td>TINYINT(1)</td>
+<td>0=unread, 1=read</td>
+</tr>
+<tr>
+<td>related_id</td>
+<td>INT</td>
+<td>ID of the related record</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td>When sent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>PART 7 — SECURITY</h1>
+<h2>Password Hashing with BCrypt</h2>
+<p>Passwords are <strong>never stored as plain text</strong>. Before saving to the database, the password goes through BCrypt hashing:</p>
+<pre><code>User types: &quot;admin123&quot;
+BCrypt converts to: &quot;$2a$10$N9qo8uLOickgx2ZMRZoMye...&quot;
+MySQL stores: &quot;$2a$10$N9qo8uLOickgx2ZMRZoMye...&quot;
+</code></pre>
+<p>When logging in:</p>
+<pre><code>User types: &quot;admin123&quot;
+BCrypt compares it against the stored hash → returns true/false
+Java never decrypts the hash — it only compares
+</code></pre>
+<p>This means even if someone steals the database, they cannot recover any passwords.</p>
+<h2>PreparedStatements (SQL Injection Prevention)</h2>
+<p>Instead of building SQL strings like:</p>
+<pre><code class="language-java">// DANGEROUS — never do this:
+String sql = &quot;SELECT * FROM users WHERE email = '&quot; + email + &quot;'&quot;;
+</code></pre>
+<p>We always use:</p>
+<pre><code class="language-java">// SAFE — parameterized query:
+String sql = &quot;SELECT * FROM users WHERE email = ?&quot;;
+pstmt.setString(1, email);
+</code></pre>
+<hr />
+<h1>PART 8 — PROJECT FOLDER STRUCTURE</h1>
+<pre><code>food-donation-system/
+│
+├── src/                          ← All Java source code
+│   ├── app/
+│   │   └── Main.java             ← Entry point, starts JavaFX app
+│   ├── db/
+│   │   ├── DatabaseConnection.java   ← Creates MySQL connection (Singleton)
+│   │   └── DatabaseInitializer.java  ← Runs schema.sql on first launch
+│   ├── model/                    ← Data classes (POJOs)
+│   │   ├── User.java
+│   │   ├── Donation.java
+│   │   ├── Request.java
+│   │   ├── EmergencyAid.java
+│   │   ├── DistributionPlace.java
+│   │   ├── DistributionSchedule.java
+│   │   └── Notification.java
+│   ├── dao/                      ← SQL query classes
+│   │   ├── UserDAO.java
+│   │   ├── DonationDAO.java
+│   │   ├── RequestDAO.java
+│   │   ├── EmergencyAidDAO.java
+│   │   ├── DistributionPlaceDAO.java
+│   │   ├── DistributionScheduleDAO.java
+│   │   └── NotificationDAO.java
+│   ├── controller/               ← Screen logic
+│   │   ├── LoginController.java
+│   │   ├── RegisterController.java
+│   │   ├── DonorDashboardController.java
+│   │   ├── RecipientDashboardController.java
+│   │   ├── AdminDashboardController.java
+│   │   ├── CreateDonationController.java
+│   │   └── ...more controllers
+│   └── util/
+│       ├── PasswordUtil.java     ← BCrypt hashing
+│       ├── SessionManager.java   ← Holds logged-in user
+│       └── AlertUtil.java        ← Popup dialogs
+│
+├── resources/
+│   ├── fxml/                     ← Screen layouts (like HTML for desktop)
+│   │   ├── login.fxml
+│   │   ├── donor_dashboard.fxml
+│   │   └── ...
+│   └── css/
+│       └── styles.css            ← Green theme styling
+│
+├── sql/
+│   ├── schema.sql                ← Creates all 7 tables
+│   └── dumps/                    ← Live data exports per table
+│
+├── lib/                          ← External JAR libraries
+│   ├── javafx-controls-21.0.2.jar
+│   ├── mysql-connector-j-8.4.0.jar
+│   ├── jbcrypt-0.4.jar
+│   └── ...
+│
+├── out/                          ← Compiled .class files (auto-generated)
+├── compile.bat                   ← One-click compile
+└── run.bat                       ← One-click run
+</code></pre>
+<hr />
+<h1>PART 9 — HOW THE TECHNOLOGIES CONNECT</h1>
+<h2>Complete Request Flow (Example: Donor posts a donation)</h2>
+<pre><code>1. DONOR clicks &quot;New Donation&quot; in the sidebar
+        ↓
+2. DonorDashboardController.showCreateDonation()
+   → Loads create_donation.fxml into the content area
+        ↓
+3. Donor fills form: title, category, quantity, expiry, address
+        ↓
+4. Donor clicks &quot;Submit&quot;
+        ↓
+5. CreateDonationController.handleSubmit()
+   → Reads all TextField/ComboBox values
+   → Creates a new Donation object:
+        Donation d = new Donation();
+        d.setTitle(&quot;Fresh Bread&quot;);
+        d.setCategory(&quot;packaged&quot;);
+        d.setDonorId(SessionManager.getCurrentUser().getId());
+        ↓
+6. DonationDAO.create(d)
+   → Opens MySQL connection via DatabaseConnection.getConnection()
+   → Runs PreparedStatement:
+        INSERT INTO donations (donor_id, title, ...) VALUES (?, ?, ...)
+   → MySQL writes the row to the donations table
+        ↓
+7. Success alert shown to donor
+   Donor sees new donation in &quot;My Donations&quot; list
+</code></pre>
+<h2>Complete Login Flow</h2>
+<pre><code>1. User types email + password → clicks Login
+        ↓
+2. LoginController.handleLogin()
+        ↓
+3. UserDAO.login(email, password)
+   → SELECT * FROM users WHERE email = ?
+   → MySQL returns a row
+   → PasswordUtil.checkPassword(typed, storedHash) → true/false
+        ↓
+4. If true:
+   → SessionManager.setCurrentUser(user)
+   → Load dashboard based on user.getRole():
+        &quot;admin&quot;     → admin_dashboard.fxml
+        &quot;donor&quot;     → donor_dashboard.fxml
+        &quot;recipient&quot; → recipient_dashboard.fxml
+        ↓
+5. Dashboard opens with user's name in header
+</code></pre>
+<hr />
+<h1>PART 10 — PRESENTATION GUIDE</h1>
+<h2>Suggested Presentation Flow (10–15 minutes)</h2>
+<h3>Slide 1 — Problem Statement</h3>
+<p><em>"Every day, tonnes of food goes to waste while millions go hungry. There is no organized system to connect food donors with those who need it in real-time."</em></p>
+<h3>Slide 2 — Solution: Annadata</h3>
+<ul>
+<li>Desktop application (runs offline)</li>
+<li>Three roles: Admin, Donor, Recipient</li>
+<li>Manages donations, claims, emergency requests, and weekly distribution</li>
+</ul>
+<h3>Slide 3 — Tech Stack</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Programming Language</td>
+<td>Java 21</td>
+</tr>
+<tr>
+<td>UI Framework</td>
+<td>JavaFX 21 + FXML</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>MySQL 8.0</td>
+</tr>
+<tr>
+<td>DB Connection</td>
+<td>JDBC + MySQL Connector/J</td>
+</tr>
+<tr>
+<td>Password Security</td>
+<td>BCrypt (jBCrypt)</td>
+</tr>
+<tr>
+<td>Styling</td>
+<td>JavaFX CSS</td>
+</tr>
+</tbody>
+</table>
+<h3>Slide 4 — Architecture Diagram</h3>
+<p>Show the 4-layer diagram from Part 3 of this document.</p>
+<h3>Slide 5 — Database Design</h3>
+<p>Show the 7 tables and their relationships (FK connections).</p>
+<h3>Slide 6 — Live Demo</h3>
+<p>Walk through these flows:
+1. Login as Admin → show overview stats
+2. Login as Donor → post a new food donation
+3. Login as Recipient → browse and claim a donation
+4. Admin → Source Charts tab
+5. Admin → Weekly Distribution Schedule</p>
+<h3>Slide 7 — Security Features</h3>
+<ul>
+<li>BCrypt password hashing</li>
+<li>PreparedStatements (no SQL injection)</li>
+<li>Role-based access control (each role sees only their screens)</li>
+<li>Session management</li>
+</ul>
+<h3>Slide 8 — Challenges Faced</h3>
+<ul>
+<li>Connecting JavaFX to MySQL without a framework</li>
+<li>Building dynamic UI (tables, cards, charts) entirely in Java code</li>
+<li>BCrypt hash verification flow</li>
+<li>Managing session state in a desktop app without HTTP sessions</li>
+</ul>
+<h3>Slide 9 — Future Scope</h3>
+<ul>
+<li>Mobile app version (Android/iOS)</li>
+<li>SMS/email notification integration</li>
+<li>Google Maps integration for pickup locations</li>
+<li>Cloud MySQL (accessible over internet so no local DB needed)</li>
+<li>Multi-language support (Hindi, Tamil, etc.)</li>
+</ul>
+<hr />
+<h1>PART 11 — KEY INTERVIEW / VIVA QUESTIONS</h1>
+<p><strong>Q: What is JDBC?</strong>
+A: Java Database Connectivity — a standard Java API that allows Java programs to connect and execute SQL queries on relational databases like MySQL, PostgreSQL, etc.</p>
+<p><strong>Q: What is the difference between Statement and PreparedStatement?</strong>
+A: Statement embeds values directly into SQL (unsafe, SQL injection risk). PreparedStatement uses <code>?</code> placeholders and separates data from the query (safe, precompiled).</p>
+<p><strong>Q: What is BCrypt?</strong>
+A: A password hashing algorithm. Unlike MD5/SHA, BCrypt is deliberately slow and includes a "salt" (random data) to make brute-force attacks impractical.</p>
+<p><strong>Q: What is MVC?</strong>
+A: Model-View-Controller. Model = data (Java model classes), View = FXML layouts, Controller = Java controller classes. It separates concerns so each part is independent.</p>
+<p><strong>Q: What is a Singleton pattern?</strong>
+A: A design pattern that ensures only one instance of a class exists. Used in <code>DatabaseConnection.java</code> so only one MySQL connection is open at a time.</p>
+<p><strong>Q: What is a DAO?</strong>
+A: Data Access Object. A design pattern where all database operations for one table are grouped into one class. Keeps SQL out of the UI code.</p>
+<p><strong>Q: What is JavaFX?</strong>
+A: A Java framework for building desktop GUIs. Uses FXML for layouts (similar to XML/HTML) and CSS for styling, with Java controllers for logic.</p>
+<p><strong>Q: Why not use Spring Boot?</strong>
+A: Spring Boot is a web application framework — it serves pages in a browser. Annadata is a desktop app meant to run locally without internet, making JavaFX the appropriate choice.</p>
+<hr />
+<p><em>Document prepared for: Annadata — Food Donation &amp; Distribution System</em>
+<em>Technology: Java 21 + JavaFX 21 + MySQL 8.0 + JDBC</em></p>
+<hr />
+<h1>🌟 SPECIAL MODULE DEEP-DIVE: DONATIONS &amp; CLAIM REQUESTS</h1>
+<h3><em>Assigned Module for Aashray — Architecture, Code Walkthrough &amp; Presentation Defense</em></h3>
+<hr />
+<h2>1. Overview of the Module</h2>
+<p>In the Annadata system, the <strong>Donations and Claim Requests</strong> module forms the core operational heart of the application. Without this module, food cannot be listed, discovered, requested, or transferred.</p>
+<p>It fulfills the two fundamental user journeys:
+1. <strong>Donor Journey</strong>: A donor lists surplus food with expiry time, quantity, category, and pickup details, monitors its status, and approves or rejects claim requests.
+2. <strong>Recipient Journey</strong>: A verified recipient (shelter, community kitchen, or individual) browses available donations in real-time, submits claim requests with custom notes, and tracks claim approval.</p>
+<hr />
+<h2>2. The 8 Core Classes in Detail</h2>
+<h3>Class 1: <code>Donation.java</code> (Model Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Plain Old Java Object (POJO) representing a row in the <code>donations</code> table.</li>
+<li><strong>Key Attributes</strong>:</li>
+<li><code>id</code>: Unique identifier (auto-increment in MySQL).</li>
+<li><code>donorId</code>: Foreign key to <code>users(id)</code>.</li>
+<li><code>title</code>, <code>description</code>: Details of the food.</li>
+<li><code>category</code>: Category string (<code>cooked</code>, <code>raw</code>, <code>packaged</code>, <code>beverages</code>, <code>dog_food</code>, <code>other</code>).</li>
+<li><code>quantity</code>, <code>unit</code>: Measurement of food (e.g., <code>50 plates</code>, <code>20 kg</code>).</li>
+<li><code>expiryDate</code> (<code>LocalDateTime</code>): Crucial for food safety.</li>
+<li><code>pickupAddress</code>: Physical pickup location.</li>
+<li><code>sourceType</code> (<code>individual</code>, <code>organization</code>, <code>government</code>), <code>sourceName</code>.</li>
+<li><code>status</code>: Lifecycle state (<code>available</code>, <code>accepted</code>, <code>completed</code>, <code>expired</code>, <code>cancelled</code>).</li>
+<li><code>donorName</code>: Additional field populated during SQL <code>JOIN</code> with the <code>users</code> table for display.</li>
+<li><strong>Why it matters</strong>: Encapsulates donation data so controllers and DAOs pass typed objects rather than loose strings or arrays.</li>
+</ul>
+<hr />
+<h3>Class 2: <code>Request.java</code> (Model Layer)</h3>
+<ul>
+<li><strong>Role</strong>: POJO representing a claim request for a donation in the <code>requests</code> table.</li>
+<li><strong>Key Attributes</strong>:</li>
+<li><code>id</code>: Primary key.</li>
+<li><code>donationId</code>: Foreign key to <code>donations(id)</code>.</li>
+<li><code>recipientId</code>: Foreign key to <code>users(id)</code>.</li>
+<li><code>status</code>: State of request (<code>pending</code>, <code>accepted</code>, <code>rejected</code>, <code>completed</code>).</li>
+<li><code>message</code>: Note from recipient explaining their requirement or logistics.</li>
+<li><code>createdAt</code>: Timestamp when request was submitted.</li>
+<li><code>donationTitle</code>, <code>donorName</code>, <code>recipientName</code>: Joined display fields for dashboards.</li>
+<li><strong>Why it matters</strong>: Tracks the negotiation between donor and recipient before physical food transfer.</li>
+</ul>
+<hr />
+<h3>Class 3: <code>DonationDAO.java</code> (Data Access Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Handles all database operations related to the <code>donations</code> table using JDBC and <code>PreparedStatement</code>.</li>
+<li><strong>Key Methods</strong>:</li>
+<li><code>create(Donation d)</code>:<ul>
+<li>Executes <code>INSERT INTO donations (...) VALUES (?, ?, ...)</code>.</li>
+<li>Sets parameters using <code>pstmt.setString()</code>, <code>pstmt.setInt()</code>, and converts <code>LocalDateTime</code> to <code>java.sql.Timestamp</code>.</li>
+</ul>
+</li>
+<li><code>findAvailable()</code>:<ul>
+<li>Executes:
+   <code>sql
+   SELECT d.*, u.name as donor_name 
+   FROM donations d 
+   LEFT JOIN users u ON d.donor_id = u.id 
+   WHERE d.status = 'available' AND d.expiry_date &gt; NOW() 
+   ORDER BY d.created_at DESC</code></li>
+<li>Filters out expired food and already-claimed donations automatically at the database level!</li>
+</ul>
+</li>
+<li><code>findByDonor(int donorId)</code>:<ul>
+<li>Returns all donations created by a specific donor.</li>
+</ul>
+</li>
+<li><code>findById(int id)</code>:<ul>
+<li>Fetches complete details of a single donation joined with donor's name.</li>
+</ul>
+</li>
+<li><code>updateStatus(int id, String status)</code>:<ul>
+<li>Transitions donation state (e.g., from <code>available</code> to <code>accepted</code> or <code>completed</code>).</li>
+</ul>
+</li>
+<li><code>countBySourceType()</code> &amp; <code>countMonthlyBySource()</code>:<ul>
+<li>Aggregates donation stats for the Admin analytics dashboard.</li>
+</ul>
+</li>
+<li><strong>Why it matters</strong>: Isolates all SQL queries so that if database schema or driver changes, the UI code remains untouched.</li>
+</ul>
+<hr />
+<h3>Class 4: <code>RequestDAO.java</code> (Data Access Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Manages all SQL persistence and retrieval for claim requests.</li>
+<li><strong>Key Methods</strong>:</li>
+<li><code>create(Request r)</code>:<ul>
+<li>Executes <code>INSERT INTO requests (donation_id, recipient_id, status, message, created_at) VALUES (?, ?, ?, ?, ?)</code>.</li>
+<li>Defaults status to <code>'pending'</code>.</li>
+</ul>
+</li>
+<li><code>findByDonation(int donationId)</code>:<ul>
+<li>Executes <code>SELECT r.*, u.name as recipient_name FROM requests r JOIN users u ON r.recipient_id = u.id WHERE r.donation_id = ?</code>.</li>
+<li>Allows the donor to see who requested their food and read their messages.</li>
+</ul>
+</li>
+<li><code>findByRecipient(int recipientId)</code>:<ul>
+<li>Executes a multi-table JOIN across <code>requests</code>, <code>donations</code>, and <code>users</code> so the recipient sees donation titles and donor names in their "My Claims" screen.</li>
+</ul>
+</li>
+<li><code>updateStatus(int id, String status)</code>:<ul>
+<li>Changes request status to <code>'accepted'</code> or <code>'rejected'</code>.</li>
+</ul>
+</li>
+<li><strong>Why it matters</strong>: Protects against SQL injection using parameterized queries while maintaining referential integrity.</li>
+</ul>
+<hr />
+<h3>Class 5: <code>CreateDonationController.java</code> (Controller Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Backing controller for <code>create_donation.fxml</code>.</li>
+<li><strong>How it works</strong>:</li>
+<li><code>initialize()</code>: Populates dropdown ComboBoxes for <code>categoryCombo</code> (<code>cooked</code>, <code>raw</code>, <code>packaged</code>, etc.) and <code>sourceTypeCombo</code>. Auto-populates donor address and name from <code>SessionManager.getCurrentUser()</code>.</li>
+<li><code>handleSubmit()</code>:<ol>
+<li>Extracts values from <code>titleField</code>, <code>categoryCombo</code>, <code>quantityField</code>, <code>expiryPicker</code>, etc.</li>
+<li>Validates that no required fields are blank and validates that quantity is numeric (<code>Integer.parseInt</code>).</li>
+<li>Constructs <code>Donation</code> object with current donor's user ID from <code>SessionManager</code>.</li>
+<li>Calls <code>donationDAO.create(d)</code>.</li>
+<li>Displays user-friendly confirmation using <code>AlertUtil.showInformation()</code> and resets form fields.</li>
+</ol>
+</li>
+<li><code>handleCancel()</code>: Clears the input fields.</li>
+</ul>
+<hr />
+<h3>Class 6: <code>DonationDetailsController.java</code> (Controller Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Adaptive details view for both Donors and Recipients (<code>donation_details.fxml</code>).</li>
+<li><strong>Dynamic Dual-Role Logic</strong>:</li>
+<li>Receives the donation object and current role via <code>setDonation(Donation d, String role)</code>.</li>
+<li><strong>When viewed by a Recipient</strong>:<ul>
+<li>Shows donation specs (category, quantity, expiry, donor source).</li>
+<li>Enables the <code>recipientBox</code> with a message input field and a "Claim This Donation" button.</li>
+<li>If status is not <code>'available'</code>, disables the claim button.</li>
+<li>When claimed: calls <code>requestDAO.create()</code>, disables button, and creates an in-app notification for the donor via <code>NotificationDAO</code>.</li>
+</ul>
+</li>
+<li><strong>When viewed by a Donor</strong>:<ul>
+<li>Enables the <code>donorBox</code> and calls <code>loadRequestsForDonor()</code>.</li>
+<li>Populates all incoming claim requests with <code>Accept</code> and <code>Reject</code> action buttons.</li>
+<li>Accepting updates both <code>requests.status = 'accepted'</code> and <code>donations.status = 'accepted'</code>.</li>
+<li>Provides options to "Mark Completed" or "Cancel Donation".</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>Class 7: <code>DonorDashboardController.java</code> (Controller Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Coordinates the main interface for logged-in donors (<code>donor_dashboard.fxml</code>).</li>
+<li><strong>Key Responsibilities</strong>:</li>
+<li>Displays welcome message with donor's name.</li>
+<li>Shows real-time unread notification count badge via <code>notificationDAO.countUnread()</code>.</li>
+<li>Generates stat cards: Total Donations, Active Donations, Completed, Expiring Soon.</li>
+<li>Renders recent donations dynamically as styled cards with action buttons (View Details, Edit, Cancel).</li>
+<li>Navigation handlers:<ul>
+<li><code>showCreateDonation()</code>: Loads <code>create_donation.fxml</code> into central <code>contentArea</code>.</li>
+<li><code>showMyDonations()</code>: Queries <code>donationDAO.findByDonor(userId)</code> and builds donation cards.</li>
+<li><code>showTodaySchedule()</code>, <code>showEmergencies()</code>, <code>showNotifications()</code>.</li>
+<li><code>handleLogout()</code>: Clears <code>SessionManager</code> and redirects to login screen.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>Class 8: <code>RecipientDashboardController.java</code> (Controller Layer)</h3>
+<ul>
+<li><strong>Role</strong>: Coordinates the primary interface for recipients/NGOs (<code>recipient_dashboard.fxml</code>).</li>
+<li><strong>Key Responsibilities</strong>:</li>
+<li><code>showBrowse()</code>:<ul>
+<li>Calls <code>donationDAO.findAvailable()</code> to fetch all non-expired, unreserved donations.</li>
+<li>Provides real-time keyword search and category filtering.</li>
+<li>Renders responsive cards displaying food category badge, quantity, expiry time, and pickup address.</li>
+<li>Clicking "View Details" opens <code>DonationDetailsController</code> with recipient capabilities.</li>
+</ul>
+</li>
+<li><code>showMyClaims()</code>:<ul>
+<li>Calls <code>requestDAO.findByRecipient(userId)</code> to display all claims made by this recipient.</li>
+<li>Displays claim status badges (<code>PENDING</code>, <code>ACCEPTED</code>, <code>REJECTED</code>).</li>
+</ul>
+</li>
+<li>Access to Emergency Aid requests and weekly distribution schedule.</li>
+</ul>
+<hr />
+<h2>3. End-to-End Sequence Diagram</h2>
+<pre><code>DONOR                       CONTROLLER &amp; DAO                  MYSQL DATABASE
+  │                                │                                │
+  │── Fill Form &amp; Click Submit ───&gt;│                                │
+  │   (CreateDonationController)   │── PreparedStatement INSERT ──&gt;│ (donations table)
+  │                                │&lt;── Insert OK ──────────────────│
+  │&lt;── &quot;Donation Created&quot; Alert ───│                                │
+  │                                │                                │
+RECIPIENT                          │                                │
+  │── Opens Browse Donations ─────&gt;│                                │
+  │   (RecipientDashboardController│── SELECT available &amp; not exp ─&gt;│
+  │                                │&lt;── List of Donations ──────────│
+  │&lt;── Displays Cards ─────────────│                                │
+  │                                │                                │
+  │── Enters Note &amp; Clicks Claim ─&gt;│                                │
+  │   (DonationDetailsController)  │── INSERT request (status=pend)─&gt;│ (requests table)
+  │                                │── INSERT notification ─────────&gt;│ (notifications table)
+  │&lt;── &quot;Claim Requested&quot; Alert ────│                                │
+  │                                │                                │
+DONOR                              │                                │
+  │── Opens Donation Details ─────&gt;│                                │
+  │   (DonationDetailsController)  │── SELECT requests for donation&gt;│
+  │                                │&lt;── Returns pending requests ───│
+  │&lt;── Shows &quot;Accept&quot; Button ──────│                                │
+  │── Clicks &quot;Accept&quot; ────────────&gt;│                                │
+  │                                │── UPDATE requests (accepted) ──&gt;│
+  │                                │── UPDATE donations (accepted) ─&gt;│
+  │&lt;── Refreshes View ─────────────│                                │
+</code></pre>
+<hr />
+<h2>4. What to Say in Your Presentation &amp; Viva</h2>
+<h3>1. Elevator Pitch of Your Module:</h3>
+<blockquote>
+<p><em>"My module is 'Donations and Claim Requests' — it is the primary business engine of Annadata. It governs how food items are created, validated, published, searched, claimed by recipients, and approved by donors. I implemented 4 controllers, 2 DAOs, and 2 Model classes managing the complete lifecycle of a food donation."</em></p>
+</blockquote>
+<h3>2. If Asked: "How do you ensure food safety and prevent expired food from being claimed?"</h3>
+<blockquote>
+<p><em>"In <code>DonationDAO.findAvailable()</code>, we run a condition <code>WHERE status = 'available' AND expiry_date &gt; NOW()</code>. This ensures expired donations are automatically filtered out at the database query level, preventing recipients from requesting outdated food."</em></p>
+</blockquote>
+<h3>3. If Asked: "How do you handle role-based behavior in the details view?"</h3>
+<blockquote>
+<p><em>"Instead of creating two duplicate screens for donors and recipients, <code>DonationDetailsController</code> takes a <code>viewerRole</code> parameter in <code>setDonation()</code>. If the user is a recipient, it shows the claim form and message box. If the user is a donor, it loads all pending requests with 'Accept' and 'Reject' action buttons."</em></p>
+</blockquote>
+<h3>4. If Asked: "Why use PreparedStatements in DonationDAO and RequestDAO?"</h3>
+<blockquote>
+<p><em>"Every query uses <code>PreparedStatement</code> with parameterized placeholders <code>?</code>. This protects the application against SQL injection attacks and improves performance because the database engine pre-compiles the SQL execution plan."</em></p>
+</blockquote>
+</body>
+</html>
